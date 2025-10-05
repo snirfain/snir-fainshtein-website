@@ -4,13 +4,17 @@ import { sendOrderConfirmation } from '@/services/emailService';
 
 // Email sending - support both old format (template/data) and new format (to/subject/html)
 export const SendEmail = async (emailData) => {
+  console.log('🔍 SendEmail called with:', emailData);
+  
   // If using template format (from Admin/Checkout)
   if (emailData.template === 'order_confirmation' && emailData.data) {
+    console.log('✅ Using sendOrderConfirmation from emailService.js');
     return sendOrderConfirmation(emailData.data);
   }
   
   // If using direct format (from Schedule/Contact)
   if (emailData.to && emailData.subject && emailData.body) {
+    console.log('✅ Using sendEmail from emailService.js (direct)');
     const { sendEmail } = await import('@/services/emailService');
     return sendEmail({
       to: emailData.to,
@@ -20,6 +24,7 @@ export const SendEmail = async (emailData) => {
   }
   
   // Fallback to EmailAPI for old format
+  console.log('⚠️ Falling back to EmailAPI.send (Mock mode)');
   return EmailAPI.send(emailData);
 };
 

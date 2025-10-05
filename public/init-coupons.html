@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>אתחול קופונים</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    button {
+      background: #fb923c;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #f97316;
+    }
+    .success {
+      color: green;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .code {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 אתחול קופונים למערכת</h1>
+    <p>לחץ על הכפתור כדי ליצור קופונים למערכת:</p>
+    
+    <div class="code">
+      <strong>TEST10</strong> - 10% הנחה<br>
+      <strong>SAVE20</strong> - 20% הנחה<br>
+      <strong>WELCOME</strong> - 15% הנחה למצטרפים חדשים
+    </div>
+    
+    <button onclick="initCoupons()">צור קופונים</button>
+    
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function initCoupons() {
+      const initialCoupons = [
+        {
+          id: 'coupon-test10',
+          code: 'TEST10',
+          discount_type: 'percentage',
+          discount_value: 10,
+          description: '10% הנחה לבדיקה',
+          active: true,
+          expires_at: null,
+          applicable_products: [],
+          applicable_categories: [],
+          created_date: new Date().toISOString()
+        },
+        {
+          id: 'coupon-save20',
+          code: 'SAVE20',
+          discount_type: 'percentage',
+          discount_value: 20,
+          description: '20% הנחה',
+          active: true,
+          expires_at: null,
+          applicable_products: [],
+          applicable_categories: [],
+          created_date: new Date().toISOString()
+        },
+        {
+          id: 'coupon-welcome',
+          code: 'WELCOME',
+          discount_type: 'percentage',
+          discount_value: 15,
+          description: '15% הנחה למצטרפים חדשים',
+          active: true,
+          expires_at: null,
+          applicable_products: [],
+          applicable_categories: [],
+          created_date: new Date().toISOString()
+        }
+      ];
+
+      // Save to localStorage
+      localStorage.setItem('coupons', JSON.stringify(initialCoupons));
+      
+      document.getElementById('result').innerHTML = `
+        <div class="success">
+          ✅ הקופונים נוצרו בהצלחה!<br>
+          <br>
+          נוצרו ${initialCoupons.length} קופונים:<br>
+          ${initialCoupons.map(c => `• ${c.code} - ${c.description}`).join('<br>')}
+          <br><br>
+          <a href="/" style="color: #fb923c;">← חזור לאתר</a>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
+

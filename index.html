@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Basic Meta Tags -->
+    <title>שניר פיינשטיין - מומחה AI והדרכה</title>
+    <meta name="description" content="מומחה למידה וטכנולוגיה, מתמחה בהטמעת AI בארגונים ומוסדות חינוך. כלים מוכחים, תבניות מקצוענות וייעוץ אישי." />
+    <meta name="keywords" content="AI, בינה מלאכותית, הדרכה, למידה ארגונית, חדשנות, חינוך" />
+    <meta name="author" content="שניר פיינשטיין" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1E6FB6" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/592c3d_Asset2.png" />
+    <link rel="apple-touch-icon" href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/592c3d_Asset2.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: 'Heebo', sans-serif;">
+        <h1>JavaScript נדרש</h1>
+        <p>אנא הפעל JavaScript בדפדפן שלך כדי להשתמש באתר זה.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('SW registered:', registration);
+            })
+            .catch(error => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

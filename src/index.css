@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Colors - מותאם ללוגו */
+:root {
+  --color-brand-orange: #fb923c;
+  --color-brand-orange-hover: #f97316;
+  --color-brand-blue: #1e3a8a;
+  --color-brand-blue-light: #2563eb;
+  --color-text-primary: #233071; /* כחול כהה לטקסט */
+}
+
+/* Apply Rubik font */
+body {
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  direction: rtl;
+  color: #233071; /* צבע ברירת מחדל לטקסט - כחול כהה */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  color: #233071; /* צבע ברירת מחדל לכל הכותרות */
+}
+
+/* Cookie Consent Animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+/* Custom utility classes for brand colors */
+.text-brand-orange {
+  color: var(--color-brand-orange);
+}
+
+.text-brand-blue {
+  color: var(--color-brand-blue);
+}
+
+.bg-brand-orange {
+  background-color: var(--color-brand-orange);
+}
+
+.bg-brand-blue {
+  background-color: var(--color-brand-blue);
+}
+
+.hover\:bg-brand-orange-hover:hover {
+  background-color: var(--color-brand-orange-hover);
+}
+
+.border-brand-orange {
+  border-color: var(--color-brand-orange);
+}

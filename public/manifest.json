@@ -1,0 +1,28 @@
+{
+  "name": "שניר פיינשטיין - מומחה AI והדרכה",
+  "short_name": "שניר פיינשטיין",
+  "description": "מומחה למידה וטכנולוגיה, מתמחה בהטמעת AI בארגונים ומוסדות חינוך",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E6FB6",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "he",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business", "productivity"]
+}
+

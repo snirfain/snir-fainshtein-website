@@ -2,9 +2,11 @@
 import { EmailAPI } from '@/services/mockData';
 import { sendOrderConfirmation } from '@/services/emailService';
 
-// Email sending - support both old format (template/data) and new format (to/subject/html)
+// Email sending - ALWAYS use emailService.js (Netlify Function)
 export const SendEmail = async (emailData) => {
   console.log('🔍 SendEmail called with:', emailData);
+  console.log('🔍 emailData.template:', emailData.template);
+  console.log('🔍 emailData.data:', emailData.data);
   
   // If using template format (from Admin/Checkout)
   if (emailData.template === 'order_confirmation' && emailData.data) {
@@ -12,7 +14,7 @@ export const SendEmail = async (emailData) => {
     return sendOrderConfirmation(emailData.data);
   }
   
-  // If using direct format (from Schedule/Contact)
+  // If using direct format (from Schedule/Contact)  
   if (emailData.to && emailData.subject && emailData.body) {
     console.log('✅ Using sendEmail from emailService.js (direct)');
     const { sendEmail } = await import('@/services/emailService');
@@ -23,9 +25,9 @@ export const SendEmail = async (emailData) => {
     });
   }
   
-  // Fallback to EmailAPI for old format
-  console.log('⚠️ Falling back to EmailAPI.send (Mock mode)');
-  return EmailAPI.send(emailData);
+  // ERROR: Unknown email format
+  console.error('❌ Unknown email format:', emailData);
+  throw new Error('Invalid email format. Expected {template, data} or {to, subject, body}');
 };
 
 // File upload mock

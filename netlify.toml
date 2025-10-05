@@ -16,7 +16,3 @@
   to = "/index.html"
   status = 200
 
-# Disable Netlify Email Plugin
-[[plugins]]
-  # No plugins enabled
-

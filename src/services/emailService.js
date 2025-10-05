@@ -18,7 +18,7 @@ export const sendEmail = async ({ to, subject, html, text = '' }) => {
     try {
       console.log('📧 Sending email via Netlify Function to:', to);
       
-      const response = await fetch('/.netlify/functions/send-email', {
+      const response = await fetch('/.netlify/functions/emails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
